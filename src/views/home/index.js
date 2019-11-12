@@ -28,8 +28,14 @@ class Home extends Component {
     let country = e.target.elements.country.value;
 
     // TODO: query weather API with city and country
-    // TODO 2: Turn response into JSON
-    // TODO 3: Update state data with JSON response
+    if (country === '' || country === null)
+      const URL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${this.state.API_KEY}&units=imperial`;
+    else
+      const URL = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${this.state.API_KEY}&units=imperial`;
+
+    let response = await fetch(URL);
+    let data = await response.json();
+    this.setState({ data });
   }
 
   render() {
@@ -40,7 +46,7 @@ class Home extends Component {
         </div>
         <div className="col-md-8">
           <WeatherForm getWeather={this.getWeather} />
-          <WeatherInfo />
+          <WeatherInfo data={this.state.data} />
         </div>
       </div>
     );

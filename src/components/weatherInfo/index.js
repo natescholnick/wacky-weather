@@ -7,15 +7,21 @@ class WeatherInfo extends Component{
     return(
       <div className="row WeatherInfo">
         <div className="col-md-12">
-          {/* TODO: make elements below only appear when data is passed  */}
-          <h3>City: Boston</h3>
-          <h3>Country: US</h3>
-          <h3>Temperature: 33&deg;</h3>
-          <h3>Humidity: 21%</h3>
-          <h3>Description: Light Snow</h3>
+          {
+            this.props.data.name &&
+              <div>
+                <h3>City: {this.props.data.name}</h3>
+                <h3>Country: {this.props.data.sys.country}</h3>
+                <h3>Temperature: {this.props.data.main.temp.toFixed(0)}&deg;</h3>
+                <h3>Humidity: {this.props.data.main.humidity}%</h3>
+                <h3>Description: {this.props.data.weather[0].description}</h3>
+              </div>
+          }
 
-          {/* TODO: show ever message if improper input */}
-          <h3>Error: Invalid Input</h3>
+          {
+            this.props.data.cod === '404' &&
+              <h3>Error: {this.props.data.message}</h3>
+          }
         </div>
       </div>
     );
