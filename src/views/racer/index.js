@@ -18,7 +18,7 @@ class Racer extends Component{
 
 		let season = e.target.elements.season.value;
 		let round = e.target.elements.round.value;
-		const URL = `http://ergast.com/api/f1/${season}/${round}/driverStandings.json`
+		const URL = `https://ergast.com/api/f1/${season}/${round}/driverStandings.json`
 
 		fetch(URL)
 			.then(res => res.json())

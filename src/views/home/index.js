@@ -30,10 +30,10 @@ class Home extends Component {
 
     // TODO: query weather API with city and country
     if (country === '' || country === null) {
-      URL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${this.state.API_KEY}&units=imperial`;
+      URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${this.state.API_KEY}&units=imperial`;
     }
     else {
-      URL = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${this.state.API_KEY}&units=imperial`;
+      URL = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${this.state.API_KEY}&units=imperial`;
     }
 
     let response = await fetch(URL);
