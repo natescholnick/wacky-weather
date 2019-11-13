@@ -9,7 +9,7 @@ class Racer extends Component{
 		super();
 
 		this.state = {
-			data: undefined,
+			standings: undefined,
 		}
 	}
 
@@ -20,18 +20,21 @@ class Racer extends Component{
 		let round = e.target.elements.round.value;
 		const URL = `http://ergast.com/api/f1/${season}/${round}/driverStandings.json`
 
-		let response = await fetch(URL);
-		let data = await response.json();
-		this.setState({ data })
+		fetch(URL)
+			.then(res => res.json())
+			.then(data =>
+				this.setState({ standings: data.MRData.StandingsTable.StandingsLists[0].DriverStandings }))
+			.catch(err => {
+				console.log(err);
+			});
 	}
 
 render() {
-		const targetData = this.state.data && this.state.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
 	  return(
 	    <div className='row'>
 	    	<div className="col-md-8 offset-md-2">
 	        <RacerForm getRaceResults={this.getRaceResults} />
-	        {this.state.data && <RacerResultsTable data={targetData} />}
+	        <RacerResultsTable standings={this.standings} />
 	      </div>
 	    </div>
     );

@@ -14,7 +14,7 @@ const RacerResultsTable = (props) =>
 			    </tr>
 			  </thead>
 			  <tbody>
-			    {props.data.map(({
+			    {props.standings.map(({
 			    	Constructors,
 			    	Driver,
 			    	points,
