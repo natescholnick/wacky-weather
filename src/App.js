@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './components/header';
 import Home from './views/home';
 import Racer from './views/racer';
-import Checkou from './views/checkout';
+import Checkout from './views/checkout';
 
 class App extends Component {
   render() {
