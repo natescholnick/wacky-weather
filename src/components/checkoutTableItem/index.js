@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-const CheckoutTableItem (props) =>
+const CheckoutTableItem = (props) =>
 		<tr>
 			<td>{props.item.name}</td>
 			<td>${props.item.price}</td>
