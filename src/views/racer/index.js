@@ -25,15 +25,15 @@ class Racer extends Component{
 		this.setState({ data })
 	}
 
-  render() {
-  	const targetData = this.state.data && this.state.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-    return(
-      <div className='row'>
-      	<div className="col-md-8 offset-md-2">
+render() {
+		const targetData = this.state.data && this.state.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+	  return(
+	    <div className='row'>
+	    	<div className="col-md-8 offset-md-2">
 	        <RacerForm getRaceResults={this.getRaceResults} />
 	        {this.state.data && <RacerResultsTable data={targetData} />}
 	      </div>
-      </div>
+	    </div>
     );
   }
 }
