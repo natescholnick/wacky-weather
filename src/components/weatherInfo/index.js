@@ -9,7 +9,7 @@ class WeatherInfo extends Component{
         <div className="col-md-12">
           {
             this.props.data.name &&
-              <div>
+              <div className="card">
                 <h3>City: {this.props.data.name}</h3>
                 <h3>Country: {this.props.data.sys.country}</h3>
                 <h3>Temperature: {this.props.data.main.temp.toFixed(0)}&deg;</h3>

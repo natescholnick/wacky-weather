@@ -26,12 +26,15 @@ class Home extends Component {
 
     let city = e.target.elements.city.value;
     let country = e.target.elements.country.value;
+    let URL = ''
 
     // TODO: query weather API with city and country
-    if (country === '' || country === null)
-      const URL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${this.state.API_KEY}&units=imperial`;
-    else
-      const URL = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${this.state.API_KEY}&units=imperial`;
+    if (country === '' || country === null) {
+      URL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${this.state.API_KEY}&units=imperial`;
+    }
+    else {
+      URL = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${this.state.API_KEY}&units=imperial`;
+    }
 
     let response = await fetch(URL);
     let data = await response.json();

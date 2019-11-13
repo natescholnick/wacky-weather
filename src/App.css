@@ -1,5 +1,6 @@
 body {
-  background: linear-gradient(-90deg, red, orange);
+  background: linear-gradient(90deg, pink, orange);
+  height: 100%;
 }
 
 .container {

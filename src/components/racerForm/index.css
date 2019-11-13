@@ -1,5 +1,6 @@
-.WeatherForm input {
+.RacerForm input {
   margin: 10px;
+  margin-bottom: 5vh;
   line-height: 50px;
   padding: 5px;
   border: none;
@@ -8,22 +9,22 @@
   border-bottom: 1px solid grey;
 }
 
-.WeatherForm input::placeholder {
+.RacerForm input::placeholder {
   color: #555;
 }
 
-.WeatherForm input[type="text"] {
+.RacerForm input[type="text"] {
   width: 25%;
   background-color: rgba(0,0,0,.15);
 }
 
-.WeatherForm input:focus {
+.RacerForm input:focus {
   background-color: rgba(0,0,0,.3);
   color: #333;
   outline: none;
 }
 
-.WeatherForm input[type="submit"] {
+.RacerForm input[type="submit"] {
   background-color: #f16051;
   color: #fff;
   border: 2px solid grey;
