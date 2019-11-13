@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 
 const RacerResultsTable = (props) =>
 	<div className="row RacerResultsTable">

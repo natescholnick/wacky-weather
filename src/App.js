@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './components/header';
 import Home from './views/home';
 import Racer from './views/racer';
+import Checkou from './views/checkout';
 
 class App extends Component {
   render() {
@@ -13,7 +14,9 @@ class App extends Component {
         <div className="container">
           <Switch>
             <Route exact path='/' render={() => <Home />} />
+            <Route exact path='/weather' render={() => <Home />} />
             <Route exact path='/racer' render={() => <Racer />} />
+            <Route exact path='/checkout' render={() => <Checkout />} />
           </Switch>
         </div>
       </div>
