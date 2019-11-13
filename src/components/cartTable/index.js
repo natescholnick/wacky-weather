@@ -18,7 +18,7 @@ class CartTable extends Component{
 					  <tbody>
 							{
 								this.props.cart &&
-									this.props.cart.map( item, index =>
+									this.props.cart.map( (item, index) =>
 										<CheckoutTableItem
                       item={item}
                       key={index}
