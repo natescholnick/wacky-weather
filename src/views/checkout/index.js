@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './index.css';
 import ProductsTable from '../../components/productsTable';
+import CartTable from '../../components/cartTable';
+import firebase from '../../firebase';
 
 let products = [
   {
@@ -23,10 +25,25 @@ class Checkout extends Component{
       products : [],
       cart : [],
     }
+
+    // run once for the life of this app / run to update products
+    // firebase.database().ref('products').set(products);
   }
 
   componentDidMount() {
     this.setState({ products });
+
+    const DB = firebase.database().ref('cart');
+    DB.on('value', response => {
+      
+      let data = response.val();
+      let cart = [];
+
+      for (let i in data) {
+        cart.push(data[i]);
+      }
+      this.setState({ cart });
+    });
   }
 
 // YOu never update the state directly. Create a local copy and then overwrite.
@@ -41,10 +58,19 @@ class Checkout extends Component{
       }
     }
     this.setState({ cart });
+    firebase.database().ref('cart').set(cart);
   }
 
   removeItem = id => {
-    console.log(id);
+    let cart = this.state.cart;
+    for (let i in cart) {
+      if (cart[i] === id) {
+        cart.splice(i, 1);
+        break;
+      }
+    }
+    this.setState({ cart })
+    firebase.database().ref('cart').set(cart);
   }
 
   render() {
@@ -52,6 +78,7 @@ class Checkout extends Component{
     return(
       <div className="Checkout">
         <ProductsTable products={this.state.products} addItem={this.addItem} />
+        <CartTable cart={this.state.cart} removeItem={this.removeItem} />
       </div>
     );
   }
