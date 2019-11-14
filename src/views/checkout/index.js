@@ -19,7 +19,7 @@ let products = [
 
 class Checkout extends Component{
   constructor(){
-    suepr();
+    super();
 
     this.state = {
       products : [],
@@ -46,7 +46,7 @@ class Checkout extends Component{
     });
   }
 
-// YOu never update the state directly. Create a local copy and then overwrite.
+// You never update the state directly. Create a local copy and then overwrite.
   addItem = id => {
     let cart = this.state.cart;
     let products = this.state.products;

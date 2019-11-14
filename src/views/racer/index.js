@@ -22,14 +22,14 @@ class Racer extends Component{
 
 		fetch(URL)
 			.then(res => res.json())
-			.then(data =>
-				this.setState({ standings: data.MRData.StandingsTable.StandingsLists[0].DriverStandings }))
+			.then(data => this.setState({ standings: data.MRData.StandingsTable.StandingsLists[0].DriverStandings }))
 			.catch(err => {
 				console.log(err);
 			});
 	}
 
 render() {
+	console.log(this.standings)
 	  return(
 	    <div className='row'>
 	    	<div className="col-md-8 offset-md-2">
