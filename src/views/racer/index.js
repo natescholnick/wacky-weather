@@ -29,12 +29,14 @@ class Racer extends Component{
 	}
 
 render() {
-	console.log(this.standings)
+
 	  return(
 	    <div className='row'>
 	    	<div className="col-md-8 offset-md-2">
 	        <RacerForm getRaceResults={this.getRaceResults} />
-	        <RacerResultsTable standings={this.standings} />
+	        { this.state.standings &&
+	        	<RacerResultsTable standings={this.state.standings} />
+	        }
 	      </div>
 	    </div>
     );

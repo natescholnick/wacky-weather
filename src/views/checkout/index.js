@@ -46,7 +46,6 @@ class Checkout extends Component{
     });
   }
 
-// You never update the state directly. Create a local copy and then overwrite.
   addItem = id => {
     let cart = this.state.cart;
     let products = this.state.products;
@@ -64,7 +63,7 @@ class Checkout extends Component{
   removeItem = id => {
     let cart = this.state.cart;
     for (let i in cart) {
-      if (cart[i] === id) {
+      if (cart[i].id === id) {
         cart.splice(i, 1);
         break;
       }
@@ -74,7 +73,6 @@ class Checkout extends Component{
   }
 
   render() {
-    console.log(this.state.cart);
     return(
       <div className="Checkout">
         <ProductsTable products={this.state.products} addItem={this.addItem} />
