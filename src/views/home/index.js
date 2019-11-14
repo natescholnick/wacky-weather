@@ -42,7 +42,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(process.env.REACT_APP_API_KEY)
     return(
       <div className='row'>
         <div className="col-md-4">
