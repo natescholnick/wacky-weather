@@ -1,8 +1,9 @@
 import firebase from 'firebase';
+require('dotenv').config();
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyBGo5WjdcVUipRA0MQM7-LjZKcURXVW6wQ",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "wacky-weather.firebaseapp.com",
   databaseURL: "https://wacky-weather.firebaseio.com",
   projectId: "wacky-weather",
